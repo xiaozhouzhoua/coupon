@@ -1,0 +1,49 @@
+server:
+  port: 8886
+  servlet:
+    context-path: /template
+spring:
+  application:
+    name: coupon-template
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate.format_sql: true
+    open-in-view: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/coupon?autoReconnect=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root1234
+    hikari:
+      maximum-pool-size: 8
+      minimum-idle: 4
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 45000
+      auto-commit: true
+      pool-name: coupon-pool
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    timeout: 10000
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  main:
+    allow-bean-definition-overriding: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

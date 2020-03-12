@@ -1,0 +1,9 @@
+server:
+  port: 8880
+spring:
+  application:
+    name: admin
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848

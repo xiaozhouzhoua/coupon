@@ -1,0 +1,15 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /settlement
+spring:
+  application:
+    name: coupon-settlement
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+logging:
+  level:
+    com.core: debug
